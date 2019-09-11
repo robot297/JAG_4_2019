@@ -3,6 +3,8 @@ package week_4;
 import org.junit.Test;
 import test_utils.PrintUtils;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class Question_1_BreakfastTest {
@@ -11,7 +13,7 @@ public class Question_1_BreakfastTest {
     public void testCereals()  {
 
         Question_1_Breakfast q1 = new Question_1_Breakfast();
-
+   
         PrintUtils.catchStandardOut();
 
         q1.cereals();

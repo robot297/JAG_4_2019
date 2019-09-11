@@ -25,7 +25,7 @@ public class Question_2_Dice_Roll {
     
     public static final String SAME_VALUES = "All the dice have the same value!";
     
-    static Random rnd;   // You will use this Random number generator in your roll method.
+    static Random rnd = new Random();   // You will use this Random number generator in your roll method.
     
     public static void main(String[] args) {
     
@@ -56,18 +56,13 @@ public class Question_2_Dice_Roll {
     
     public static List<Integer> roll(int numberOfDice) {
 
-        rnd = new Random();   // Use this Random rnd to generate random numbers. Don't modify this line.
+        // Use the Random rnd variable declared on line 28 to generate random numbers.
+        // Don't create another Random object.
         
         // TODO create an ArrayList of Integer.
         // TODO Roll the given number of dice. Store the values in an ArrayList and return it.
         
-        List<Integer> l = new ArrayList<>();
-        for (int x = 0 ; x < numberOfDice; x++) {
-             l.add(rnd.nextInt(6) + 1);
-        }
-        return l;
-        
-//       return null;  // Replace with your code
+       return null;  // TODO Replace with your code
     }
 
 
@@ -79,9 +74,7 @@ public class Question_2_Dice_Roll {
         // TODO add up all of the values in the List and return this total.
         // TODO this should still work for any number of dice in the diceValues List.
         
-        
-        return 0;  // Replace with your code.
-        
+        return 0;  // TODO Replace with your code.
     }
 
 
@@ -91,13 +84,10 @@ public class Question_2_Dice_Roll {
         // TODO if the diceValues List is empty, return false
     
         // TODO return true if all of the values in the diceValues List are the same.
-        //
         // TODO this method should work for 0 dice, 1 dice, 2 dice, 3 dice, 100 dice...
-        
         
         return false;   // TODO Replace with your code
 
     }
-    
     
 }

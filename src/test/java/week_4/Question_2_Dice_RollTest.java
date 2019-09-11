@@ -42,7 +42,8 @@ public class Question_2_Dice_RollTest {
         List<Integer> expected = newArrayList(4, 5, 3, 6);
 
         List<Integer> actual = Question_2_Dice_Roll.roll(4);
-
+    
+        System.out.println("Expected " + expected + " Actual " + actual);
         assertTrue("Use the Random rnd variable provided in the program. Don't create a new Random. " +
                 "\nRoll the given number of dice, store each number in an ArrayList, and return it. ",
                 ArrayListUtils.arrayListEqual(expected, actual));
