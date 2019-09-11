@@ -7,6 +7,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.util.ArrayList;
+import java.util.List;
 
 // Mocking libraries for creating a mock InputUtils class, for generating example user input
 import static org.easymock.EasyMock.anyString;
@@ -20,7 +21,7 @@ import static test_utils.ArrayListUtils.newArrayList;
 import static test_utils.ArrayListUtils.stringArrayListSameElementsAnyOrder;
 import static test_utils.PrintUtils.catchStandardOut;
 import static test_utils.PrintUtils.resetStandardOut;
-import static week_4.Question_6_Go_Fish.*;
+import static week_4.Question_3_Go_Fish.*;
 
 /** Tests for GoFish.
  * Uses mocks to create mock/pretend methods that provide example user input.
@@ -31,14 +32,14 @@ import static week_4.Question_6_Go_Fish.*;
 
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({InputUtils.class, Question_6_Go_Fish.class})
-public class Question_6_Go_FishTest  {
+@PrepareForTest({InputUtils.class, Question_3_Go_Fish.class})
+public class Question_3_Go_FishTest {
     
     
     @Test(timeout=3000)
     public void testCreateDeck() throws Exception {
         
-        ArrayList<String> deck = createDeck();
+        List<String> deck = createDeck();
         assertEquals("The deck should contain 52 cards", 52, deck.size());
         
         int expectedSize = 52;
@@ -63,8 +64,8 @@ public class Question_6_Go_FishTest  {
     @Test(timeout=3000)
     public void testCreatePool() throws Exception {
         
-        ArrayList<String> originalExampleDeck = newArrayList("Q", "J", "4");
-        ArrayList<String> exampleDeck = newArrayList("Q", "J", "4");
+        List<String> originalExampleDeck = newArrayList("Q", "J", "4");
+        List<String> exampleDeck = newArrayList("Q", "J", "4");
         
         createPool(exampleDeck);
         assertTrue("This method move all cards from the deck to the pool.", stringArrayListSameElementsAnyOrder(originalExampleDeck, pool));
@@ -339,13 +340,13 @@ public class Question_6_Go_FishTest  {
         // Same thing, but this time, Computer is the player, taking a turn against the human.
         
         
-        mockStaticPartial(Question_6_Go_Fish.class, "selectComputerCardValue");
+        mockStaticPartial(Question_3_Go_Fish.class, "selectComputerCardValue");
         
         for (String i : inputs) {
-            expect(Question_6_Go_Fish.selectComputerCardValue()).andReturn(i);
+            expect(Question_3_Go_Fish.selectComputerCardValue()).andReturn(i);
         }
         
-        replay(Question_6_Go_Fish.class);
+        replay(Question_3_Go_Fish.class);
         
         pool = new ArrayList<>(startPool);
         computerHand = new ArrayList<>(startPlayerHand);

@@ -2,6 +2,7 @@ package test_utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Clara on 6/1/17.
@@ -25,7 +26,7 @@ public class ArrayListUtils {
      * have the same items in the same order. If verbose == true, and Arrays are not equal, print the reason. */
     
     
-    public static boolean arrayListEqual(ArrayList a1, ArrayList a2, boolean verbose) {
+    public static boolean arrayListEqual(List a1, List a2, boolean verbose) {
         
         String msg = null;
         
@@ -57,7 +58,7 @@ public class ArrayListUtils {
          * Returns true if both lists are the same length, and
          * have the same items in the same order. */
     
-    public static boolean arrayListEqual(ArrayList a1, ArrayList a2) {
+    public static boolean arrayListEqual(List a1, List a2) {
         
         return arrayListEqual(a1, a2, false);
     }
@@ -65,16 +66,15 @@ public class ArrayListUtils {
     /**  Checks is membership same in two ArrayLists. Same elements, but can be in any order */
 
 
-    public static boolean stringArrayListSameElementsAnyOrder(ArrayList<String> a1, ArrayList<String> a2) {
+    public static boolean stringArrayListSameElementsAnyOrder(List<String> a1, List<String> a2) {
 
         if (a1 == null && a2 == null)  { return true; }    //both null
         if (a1 == null || a2 == null)  { return false; }   //if previous condition is false, this checks if one or the other null
         if (a1.size() != a2.size() )   { return false; }
-
-        // Make a copy of a2 so can modify it without affecting the original ArrayList
-        ArrayList<String> a2_copy = (ArrayList<String>) a2.clone();
-
-        // Loop over first ArrayList. Remove each element from the other ArrayList.
+    
+        List<String> a2_copy = new ArrayList<>(a2);
+        
+        // Loop over first ArrayList. Remove each element from copy of the other ArrayList.
         for (String e : a1 ) {
             a2_copy.remove(e);
         }

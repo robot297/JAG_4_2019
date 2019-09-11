@@ -2,12 +2,12 @@ package week_4;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static input.InputUtils.*;
 
 /**
  *
-
  A first prototype of a program that plays a simplified version of the children's card
  game Go Fish against you.  This version is based from the rules given at
 
@@ -32,11 +32,9 @@ import static input.InputUtils.*;
 
  Play proceeds to the left. When all sets of cards have been laid down in books, the game ends.
  The player with the most books wins."
-
-
+ 
  Your tasks: finish the incomplete methods. Run and test the program. Also run the unit tests.
  You might want to add some extra System.out.println() statements to update the player on the status of the game.
- 
  
  Optional extra challenge: Write your own test to check the behavior of your selectComputerCardValue method.
  
@@ -44,30 +42,29 @@ import static input.InputUtils.*;
  
  */
 
-public class Question_6_Go_Fish {
+public class Question_3_Go_Fish {
 
-    static ArrayList<String> pool;
+    static List<String> pool;
 
-    static final String[] deckArray = new String[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
-    static final ArrayList<String> cardValues = new ArrayList(Arrays.asList(deckArray));
+    private static final String[] deckArray = new String[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+    static final List<String> cardValues = new ArrayList<>(Arrays.asList(deckArray));
 
     // List of player's cards, list of computer's cards
-    static ArrayList<String> playerHand, computerHand;
+    static List<String> playerHand, computerHand;
 
     // List of values that the player and computer have books of. For example,
     // if the player has made a book of 6s and a book of Qs, then playerBooks = [ "6", "Q" ]
-    static ArrayList<String> playerBooks, computerBooks;
+    static List<String> playerBooks, computerBooks;
 
     // Players' names
     final static String HUMAN = "Human";
     final static String COMPUTER = "Computer";
     
-    
 
     public static void main(String[] args) {
 
         // Create a deck of cards,
-        ArrayList<String> deck = createDeck();
+        List<String> deck = createDeck();
 
         // Deal cards to two players
         playerHand = dealHand(deck);
@@ -96,7 +93,7 @@ public class Question_6_Go_Fish {
 
     /** Methods to set up game */
 
-    public static ArrayList<String> createDeck() {
+    public static List<String> createDeck() {
         // TODO create an ArrayList with 52 strings, each representing a card value in a standard deck.
         // Your strings should be "A" "2", "3", "4" ... since suits don't matter in this game.
         // There will be 4 "A" and 4 "2" and 4 "3" ....
@@ -107,13 +104,13 @@ public class Question_6_Go_Fish {
     }
 
 
-    public static void createPool(ArrayList<String> deck) {
+    public static void createPool(List<String> deck) {
         // TODO copy all cards from deck to pool
         // This method should modify the global pool variable. It does not need to return anything.
     }
 
 
-    public static ArrayList<String> dealHand(ArrayList<String> deck) {
+    public static ArrayList<String> dealHand(List<String> deck) {
         // TODO create a new ArrayList to represent a hand of cards.
         // Deal from the *start* of the ArrayList.
         // TODO how should you handle with running out of cards to deal?
@@ -196,24 +193,24 @@ public class Question_6_Go_Fish {
     }
 
 
-    public static void goFish(ArrayList<String> hand) {
+    public static void goFish(List<String> hand) {
         //TODO remove card from pool and add to this hand.
         // The cards should already be shuffled.
-        // Take the FIRST card from the pool and add it to the end of the hand.
+        // Take the FIRST matching card from the pool and add it to the end of the hand.
         //TODO test that the pool is not empty. If pool is empty, don't modify hand or pool.
-        //This method does not need to return anything.
-        // Pass-by-reference means that any modifications made to hand are the same changes made to hand in the calling method.
+        // This method does not need to return anything.
+        // Any modifications made to hand here, are the same changes made to hand in the calling method.
     }
 
 
-    public static boolean handHasCard(ArrayList<String> hand, String cardRequested) {
+    public static boolean handHasCard(List<String> hand, String cardRequested) {
         // TODO Check if any cards of this value are present in the hand. Return true if so.
         // If cardRequested is null, return false.
         return false;
     }
 
 
-    public static void transfer(String card, ArrayList<String> fromHand, ArrayList<String> toHand) {
+    public static void transfer(String card, List<String> fromHand, List<String> toHand) {
         // TODO transfer all cards of the given value from one hand to the other.
         // example: if card = "5" then remove all "5" from fromHand and add them to toHand.
         // example: card = "5" , fromHand = [ 5, 6, 7, 2, 5 ],  toHand = [ 1, 2 ]
@@ -222,16 +219,16 @@ public class Question_6_Go_Fish {
     }
 
 
-    public static void makeBooks(ArrayList<String> hand, ArrayList<String> books) {
+    public static void makeBooks(List<String> hand, List<String> books) {
 
         // TODO make books for this hand. Remove cards from the hand, and add one entry to the books list.
         // example: hand has 4 "6" values in, so a book of 6s. Remove all "6" from hand, and add one "6" to books.
         // example: hand starts as ["6","6","6","2","6","7"], books starts as ["4", "Q"]
-        // After transfer, hand = ["2","7"] and books = ["4","Q","6"]
+        // After transfer, hand = ["2","7"] and books = ["4", "Q", "6"]
         
         // Your method should work if there is more than one book in the hand
-        // Example: ["6","6","A","6","2","A","6","A","7","A"] and books is ["4", "Q"]
-        // Hand should become ["2","7"] and books = ["4","Q","6", "A"]
+        // Example: ["6", "6", "A", "6", "2", "A", "6", "A", "7", "A"] and books is ["4", "Q"]
+        // Hand should become ["2", "7"] and books = ["4", "Q", "6", "A"]
         
         // You don't need to return anything.
     }
@@ -256,7 +253,7 @@ public class Question_6_Go_Fish {
 
     /** Input and output methods */
 
-    public static void displayHand(ArrayList<String> hand) {
+    public static void displayHand(List<String> hand) {
         // TODO Display all of the cards in this hand.
     }
 
@@ -296,8 +293,6 @@ public class Question_6_Go_Fish {
         
         // TODO display the name of the winning player in this format: "Human is the winner" or "Computer is the winner".
         
-        
-
     }
 
 
