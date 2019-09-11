@@ -100,22 +100,28 @@ public class Question_3_Go_Fish {
         // You may use the static cardValues ArrayList, which has a list of the card values.
         
         // TODO Shuffle the deck.
-        return null;
+        
+        return null;  // TODO replace this with a return statement for your list
+
     }
 
 
     public static void createPool(List<String> deck) {
+        // TODO initialize the global pool variable, to a new ArrayList
         // TODO copy all cards from deck to pool
-        // This method should modify the global pool variable. It does not need to return anything.
+        // This method should modify the global pool list variable. It does not need to return anything.
+        
     }
 
 
-    public static ArrayList<String> dealHand(List<String> deck) {
+    public static List<String> dealHand(List<String> deck) {
         // TODO create a new ArrayList to represent a hand of cards.
-        // Deal from the *start* of the ArrayList.
-        // TODO how should you handle with running out of cards to deal?
+        // Deal from the *start* of the deck ArrayList.
+        // TODO it shouldn't be an issue here, but think about how should you handle with running out of cards to deal?
         // deal seven cards from the deck - remove from deck, add to the hand.
-        return null;
+        
+        return null;   // TODO replace with your code
+        
     }
 
 
@@ -189,24 +195,30 @@ public class Question_3_Go_Fish {
         // If the computer's hand is empty, return null.
         
         // Optional: write your own test for this method.
-        return null;
+        
+        return null;   // TODO replace with your code
+   
+    
     }
 
 
     public static void goFish(List<String> hand) {
         //TODO remove card from pool and add to this hand.
         // The cards should already be shuffled.
-        // Take the FIRST matching card from the pool and add it to the end of the hand.
+        // Take the FIRST (0th) card from the pool and add it to the end of the hand.
         //TODO test that the pool is not empty. If pool is empty, don't modify hand or pool.
         // This method does not need to return anything.
         // Any modifications made to hand here, are the same changes made to hand in the calling method.
+        
     }
 
 
     public static boolean handHasCard(List<String> hand, String cardRequested) {
         // TODO Check if any cards of this value are present in the hand. Return true if so.
         // If cardRequested is null, return false.
-        return false;
+        
+        return false;    // TODO replace with your code
+    
     }
 
 
@@ -216,6 +228,7 @@ public class Question_3_Go_Fish {
         // example: card = "5" , fromHand = [ 5, 6, 7, 2, 5 ],  toHand = [ 1, 2 ]
         // After transfer, fromHand = [ 6, 7, 2 ], toHand = [ 1, 2, 5, 5 ]
         // You do not need to return anything - just modify the fromHand and toHand.
+        
     }
 
 
@@ -231,13 +244,17 @@ public class Question_3_Go_Fish {
         // Hand should become ["2", "7"] and books = ["4", "Q", "6", "A"]
         
         // You don't need to return anything.
+    
+    
     }
+    
 
 
     public static boolean gameOver() {
         // TODO test if the pool is empty. Return true if the pool is empty, false otherwise.
-        return false;
-
+        
+        return false;   // TODO replace with your code
+    
     }
 
 
@@ -245,10 +262,11 @@ public class Question_3_Go_Fish {
     public static String identifyWinner() {
         // TODO return "Computer" if computer wins, return "Human" if human player wins. Use the global static player name Strings.
         // Count the number of books each player has made, the player with the most books is the winner.
-        return null;
+       
+        return null;  // TODO replace with your code
+        
     }
-
-
+    
 
 
     /** Input and output methods */
@@ -261,6 +279,8 @@ public class Question_3_Go_Fish {
     /** Ask player for a card. Checks to see if the value is a valid value for a card, in the range A, 2, 3 .... J , Q , K
      * Also checks to see if the player does already have a card of that value in their hand. Players can only request
      * cards that they already have one of that value in their hand.
+     *
+     * You don't need to modify this method.
      */
     public static String cardValueInput() {
 
@@ -286,13 +306,15 @@ public class Question_3_Go_Fish {
 
     public static void printGameStats() {
 
-        // TODO Display if human or computer wins by examining computerBooks and playerBooks. - who has the most books?
+        // TODO Decide if human or computer wins by examining computerBooks and playerBooks.
+        //  - who has the most books? Use identifyWinner method.
         
+        // TODO display the name of the winning player in this format: "Human is the winner" or "Computer is the winner".
+    
         // TODO Display a list of books each player has.
         // TODO Display the total number of books for each player.
         
-        // TODO display the name of the winning player in this format: "Human is the winner" or "Computer is the winner".
-        
+    
     }
 
 

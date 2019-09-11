@@ -77,7 +77,7 @@ public class Question_3_Go_FishTest {
         
         ArrayList<String> exampleDeck = newArrayList("Q", "J", "4", "5", "3", "2", "4", "Q", "A");
         
-        ArrayList<String> hand = dealHand(exampleDeck);
+        List<String> hand = dealHand(exampleDeck);
         
         // deck should contain ["Q", "A"]
         // hand should be ["Q", "J", "4", "5", "3", "2", "4"]
@@ -481,32 +481,38 @@ public class Question_3_Go_FishTest {
     
     @Test(timeout=3000)
     public void testMakeBooks() throws Exception {
-        
+    
         ArrayList<String> hand = newArrayList("2", "4", "2", "2", "5", "2");
         ArrayList<String> books = new ArrayList<>();
-        
+    
         ArrayList<String> expectedHand = newArrayList("4", "5");
         ArrayList<String> expectedBooks = newArrayList("2");
-        
+    
         ArrayList<String> expectedHand2 = newArrayList("4", "5");
         ArrayList<String> expectedBooks2 = newArrayList("2");
-        
+    
         makeBooks(hand, books);
+    
+        String msg = "A book is 4 of the same card. If there are 4 of one card in the hand, remove all of those cards. Add one entry to the player's books ArrayList. " +
+                "\nIf there are no books, don't modify the hand.";
+    
+        assertTrue(msg, arrayListEqual(hand, expectedHand, true));
+        assertTrue(msg, arrayListEqual(books, expectedBooks, true));
+    
+        // No books left to make. Verify nothing changes.
+        makeBooks(hand, books);
+    
+        assertTrue(msg, arrayListEqual(hand, expectedHand2, true));
+        assertTrue(msg, arrayListEqual(books, expectedBooks2, true));
+    }
+    
+    @Test(timeout=3000)
+    public void testMakeManyBooks()  {
+        // Make more than one book
         
         String msg = "A book is 4 of the same card. If there are 4 of one card in the hand, remove all of those cards. Add one entry to the player's books ArrayList. " +
                 "\nIf there are no books, don't modify the hand.";
-        
-        assertTrue(msg, arrayListEqual(hand, expectedHand, true));
-        assertTrue(msg, arrayListEqual(books, expectedBooks, true));
-        
-        // No books left to make. Verify nothing changes.
-        makeBooks(hand, books);
-        
-        assertTrue(msg, arrayListEqual(hand, expectedHand2, true));
-        assertTrue(msg, arrayListEqual(books, expectedBooks2, true));
-        
-        // Make more than one book
-        
+    
         ArrayList<String> hand2books = newArrayList("2", "3", "3", "4", "2", "2", "3", "3", "5", "2");
         ArrayList<String> books2books = new ArrayList<>();
         
@@ -517,9 +523,8 @@ public class Question_3_Go_FishTest {
         
         assertTrue(msg, arrayListEqual(hand2books, expectedHand2books, true));
         assertTrue(msg, arrayListEqual(books2books, expectedBooks2books, true));
-        
-        
     }
+    
     
     @Test(timeout=3000)
     public void testGameOver() throws Exception {
