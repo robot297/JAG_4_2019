@@ -59,7 +59,7 @@ public class Question_2_Dice_Roll {
         // Use the Random rnd variable declared on line 28 to generate random numbers.
         // Don't create another Random object.
         
-        // TODO create an ArrayList of Integer.
+        // TODO create an ArrayList of Integer values.
         // TODO Roll the given number of dice. Store the values in an ArrayList and return it.
         
        return null;  // TODO Replace with your code
@@ -68,8 +68,8 @@ public class Question_2_Dice_Roll {
 
     public static int diceTotal(List<Integer> diceValues) {
     
-        // TODO if the diceValues List is null, return false.  (hint: do this check first)
-        // TODO if the diceValues List is empty, return false
+        // TODO if the diceValues List is null, return 0.  (hint: do this check first)
+        // TODO if the diceValues List is empty, return 0.
         
         // TODO add up all of the values in the List and return this total.
         // TODO this should still work for any number of dice in the diceValues List.
